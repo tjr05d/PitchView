@@ -1,6 +1,8 @@
+@model pitch_app.Models.Inning
 @{
     ViewData["Title"] = "Index";
 }
 
 <h2>Index</h2>
-<p>Hello from the view Template!</p>
+<p> @Html.DisplayFor(model => model.Name)</p>
+<p> @Html.DisplayFor(model => model.ID)</p>
