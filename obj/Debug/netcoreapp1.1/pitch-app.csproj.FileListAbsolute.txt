@@ -1,0 +1,8 @@
+/Users/timothyreen/desktop/astros/pitch-app/bin/Debug/netcoreapp1.1/pitch-app.deps.json
+/Users/timothyreen/desktop/astros/pitch-app/bin/Debug/netcoreapp1.1/pitch-app.runtimeconfig.json
+/Users/timothyreen/desktop/astros/pitch-app/bin/Debug/netcoreapp1.1/pitch-app.runtimeconfig.dev.json
+/Users/timothyreen/desktop/astros/pitch-app/bin/Debug/netcoreapp1.1/pitch-app.dll
+/Users/timothyreen/desktop/astros/pitch-app/bin/Debug/netcoreapp1.1/pitch-app.pdb
+/Users/timothyreen/desktop/astros/pitch-app/obj/Debug/netcoreapp1.1/pitch-app.AssemblyInfo.cs
+/Users/timothyreen/desktop/astros/pitch-app/obj/Debug/netcoreapp1.1/pitch-app.dll
+/Users/timothyreen/desktop/astros/pitch-app/obj/Debug/netcoreapp1.1/pitch-app.pdb
