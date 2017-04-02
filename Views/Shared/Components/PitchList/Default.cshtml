@@ -1,0 +1,10 @@
+@model IEnumerable<pitch_app.Models.Pitch>
+
+<h3>Pitches</h3>
+<ul>
+    @foreach (var pitch in Model)
+    {
+        <li>@pitch.pitch_type_name</li>
+        <li>@pitch.release_speed</li>
+    }
+</ul>

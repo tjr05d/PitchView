@@ -20,5 +20,13 @@ namespace pitch_app.Controllers
 
             return ViewComponent("AtBatList", new { inning_num = cvt_inning_num, top = cvt_top}); 
         }
+
+        // public IActionResult GetPitches()
+        // {
+
+    
+        //     return ViewComponent("PitchList"); 
+        // }
+
     }
 }

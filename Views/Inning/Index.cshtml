@@ -11,12 +11,9 @@
                 new SelectListItem() { Text = i.FormatName(), Value = i.FormatValue()}))
 
 <div id="ab-vc">
-    @await Component.InvokeAsync("AtBatList", new { inning_num = 9, top = true })
+    @await Component.InvokeAsync("AtBatList", new { inning_num = 1, top = true })
 </div>
-<p> @Html.DisplayFor(model => model.Number)</p>
-<p> @Html.DisplayFor(model => model.Top)</p>
 
-@{
-    @Html.Partial("AtBats", Model);    
-}
-
+<div id="pitch-vc">
+        @await Component.InvokeAsync("PitchList", new { ab = Model.AtBats[1]})
+</div>
