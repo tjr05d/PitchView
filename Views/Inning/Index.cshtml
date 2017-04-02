@@ -7,20 +7,6 @@
 <p> @Html.DisplayFor(model => model.Number)</p>
 <p> @Html.DisplayFor(model => model.Top)</p>
 
-@foreach (var atBat in Model.AtBats)
-{
-    <ul>
-        <li>@atBat.Pitcher.Name</li>
-        <li>@atBat.Pitcher.AveragePitchSpeed()</li>
-        <li>@atBat.Batter.Name</li>
-            @foreach (var pitch in atBat.Pitches)
-            {
-                <ul>
-                    <li>Pitch Number: @pitch.at_bat_pitch</li>
-                    <li>@pitch.pitch_type_name</li>
-                    <li>@pitch.release_speed</li>
-                </ul>
-            }
-        
-    </ul>
-}   
+@{
+    @Html.Partial("AtBats", Model);    
+}
