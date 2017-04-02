@@ -13,9 +13,12 @@ namespace pitch_app.Controllers
             return View(inning); 
         }
 
-        public IActionResult Welcome(string name, int ID = 1)
+        public IActionResult GetAtBats(string inning_num, string top)
         {
-         return View(); 
+            int cvt_inning_num = int.Parse(inning_num); 
+            bool cvt_top = bool.Parse(top); 
+
+            return ViewComponent("AtBatList", new { inning_num = cvt_inning_num, top = cvt_top}); 
         }
     }
 }

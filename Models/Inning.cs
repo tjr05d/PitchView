@@ -58,9 +58,9 @@ namespace pitch_app.Models
             return this.Top ? $"Top {this.Number}" : $"Bottom {this.Number}";
         }
 
-        // public string FormatValue()
-        // {
-               
-        // }
+        public string FormatValue()
+        {
+            return $"{this.Number}, {this.Top}";        
+        }
     }
 }

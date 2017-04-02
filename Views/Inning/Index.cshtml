@@ -8,9 +8,9 @@
 <h2>Index</h2>
 @Html.DropDownListFor(m => m.Number,
            inningList.GetInnings().Select(i => 
-                new SelectListItem() { Text = i.FormatName()}))
+                new SelectListItem() { Text = i.FormatName(), Value = i.FormatValue()}))
 
-<div >
+<div id="ab-vc">
     @await Component.InvokeAsync("AtBatList", new { inning_num = 9, top = true })
 </div>
 <p> @Html.DisplayFor(model => model.Number)</p>
