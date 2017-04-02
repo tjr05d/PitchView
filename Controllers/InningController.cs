@@ -9,17 +9,13 @@ namespace pitch_app.Controllers
         public IActionResult Index(int number = 1, bool top = true)
         {
             Inning inning = new Inning(number, top);
+            inning.Populate(); 
             return View(inning); 
         }
 
         public IActionResult Welcome(string name, int ID = 1)
         {
          return View(); 
-        }
-
-        private static string GetName(Inning inning)
-        {
-            return inning.Name;
         }
     }
 }

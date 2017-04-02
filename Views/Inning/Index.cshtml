@@ -2,7 +2,15 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+    
 <h2>Index</h2>
-<p> @Html.DisplayFor(model => model.Name)</p>
-<p> @Html.DisplayFor(model => model.ID)</p>
+<p> @Html.DisplayFor(model => model.Number)</p>
+<p> @Html.DisplayFor(model => model.Top)</p>
+
+@foreach (var atBat in Model.AtBats)
+{
+    <ul>
+        <li>@atBat.Pitcher</li>
+        <li>@atBat.Batter</li>
+    </ul>
+}   
