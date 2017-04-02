@@ -31,11 +31,14 @@ namespace pitch_app.Models
             {
                 if(currentBatter != pitch.batter_id)
                 {
+                    currentBatter = pitch.batter_id;
+                    var PitchesInAtBat = from inningPitch in InningPitches where (inningPitch.batter_id == currentBatter) select inningPitch;  
+                    List<Pitch> pitchToList = PitchesInAtBat.ToList(); 
                     //create a new at bat
-                    AtBat newAB = new AtBat(pitch.batter, pitch.pitcher);
+                    AtBat newAB = new AtBat(pitch.pitcher, pitch.batter, pitchToList);
                     //Add the at bat to the inning
                     this.AtBats.Add(newAB);  
-                    currentBatter = pitch.batter_id; 
+                    
                 }
             }
             

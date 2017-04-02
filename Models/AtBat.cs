@@ -11,10 +11,11 @@ namespace pitch_app.Models
         
         public List<Pitch> Pitches { get; set; }
 
-        public AtBat(string pitcher = null, string batter= null)
+        public AtBat(string pitcher, string batter, List<Pitch> pitches)
         {
             Pitcher = pitcher;
-            Batter = batter; 
+            Batter = batter;
+            Pitches = pitches; 
         }
 
     }
