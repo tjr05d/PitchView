@@ -52,5 +52,15 @@ namespace pitch_app.Models
             }
             
         }
+
+        public string FormatName()
+        {
+            return this.Top ? $"Top {this.Number}" : $"Bottom {this.Number}";
+        }
+
+        // public string FormatValue()
+        // {
+
+        // }
     }
 }

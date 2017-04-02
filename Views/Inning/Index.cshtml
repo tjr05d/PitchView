@@ -1,9 +1,14 @@
 @model pitch_app.Models.Inning
+@inject pitch_app.Models.Services.InningDropdown inningList 
+
 @{
     ViewData["Title"] = "Index";
 }
     
 <h2>Index</h2>
+@Html.DropDownListFor(m => m.Number,
+           inningList.GetInnings().Select(i => 
+                new SelectListItem() { Text = i.FormatName()}))
 <p> @Html.DisplayFor(model => model.Number)</p>
 <p> @Html.DisplayFor(model => model.Top)</p>
 

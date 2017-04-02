@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using pitch_app.Models.Services; 
 
 namespace pitch_app
 {
@@ -29,6 +30,7 @@ namespace pitch_app
         {
             // Add framework services.
             services.AddMvc();
+            services.AddTransient<InningDropdown>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
