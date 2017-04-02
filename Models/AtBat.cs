@@ -6,12 +6,11 @@ namespace pitch_app.Models
 {
     public class AtBat
     {
-        public string Pitcher { get; set; }
-        public string Batter { get; set; }
-        
+        public Pitcher Pitcher { get; }
+        public Batter Batter { get; }
         public List<Pitch> Pitches { get; set; }
 
-        public AtBat(string pitcher, string batter, List<Pitch> pitches)
+        public AtBat(Pitcher pitcher, Batter batter, List<Pitch> pitches)
         {
             Pitcher = pitcher;
             Batter = batter;

@@ -18,7 +18,7 @@ namespace pitch_app.Models
             AtBats = new List<AtBat>(); 
         }
 
-        public void Populate()
+        public void GetData()
         {
             string json = System.IO.File.ReadAllText(@"App_Data/interviewgame.json");
             // Takes the JSON String a converts into a List of Dictionaries
@@ -31,22 +31,19 @@ namespace pitch_app.Models
             {
                 if(currentBatter != pitch.batter_id)
                 {
+                    //set teh currnet batter to new batter
                     currentBatter = pitch.batter_id;
-                    var PitchesInAtBat = from inningPitch in InningPitches where (inningPitch.batter_id == currentBatter) select inningPitch;  
-                    List<Pitch> pitchToList = PitchesInAtBat.ToList(); 
-                    //create a new at bat
-                    AtBat newAB = new AtBat(pitch.pitcher, pitch.batter, pitchToList);
+                    //query for all of the picthes in the at bat
+                    List<Pitch> PitchesInAtBat = (from inningPitch in InningPitches where inningPitch.batter_id == currentBatter select inningPitch).ToList();  
+                    //instantiates new at bat
+                    Pitcher c_pitcher = new Pitcher(pitch.pitcher, pitch.pitcher_id);
+                    Batter c_batter = new Batter(pitch.batter, pitch.batter_id); 
+                    AtBat newAB = new AtBat(c_pitcher, c_batter, PitchesInAtBat);
                     //Add the at bat to the inning
                     this.AtBats.Add(newAB);  
-                    
                 }
             }
             
         }
     }
 }
-
-// To populate the Inning
-// loop through every dict that has that has the corret number and top boolean
-//When a new batter appears create a new AtBat
-// for each AtBat create the Pitches that go along with that atBAt

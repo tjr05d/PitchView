@@ -6,10 +6,10 @@ namespace pitch_app.Controllers
 {
     public class InningController : Controller
     {
-        public IActionResult Index(int number = 1, bool top = true)
+        public IActionResult Index(int number = 2, bool top = false)
         {
             Inning inning = new Inning(number, top);
-            inning.Populate(); 
+            inning.GetData(); 
             return View(inning); 
         }
 

@@ -22,22 +22,6 @@ namespace pitch_app.Models
 		public string pitch_type_name {get; set;}
 		public float release_speed {get; set;}
 		public string video_url {get; set;}
-        
-        // public Pitch(string data = null)
-        // {
-        //     Type = GetType(data);
-        //     Speed = GetSpeed(data); 
-        // }
-
-        // private string GetType(string data)
-        // {
-        //     return "Four Seam FB"; 
-        // }
-
-        // private float GetSpeed(string data)
-        // {
-        //     return 87.94F; 
-        // }
 
     }
 }

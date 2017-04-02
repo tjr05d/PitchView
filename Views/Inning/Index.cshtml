@@ -10,8 +10,9 @@
 @foreach (var atBat in Model.AtBats)
 {
     <ul>
-        <li>@atBat.Pitcher</li>
-        <li>@atBat.Batter</li>
+        <li>@atBat.Pitcher.Name</li>
+        <li>@atBat.Pitcher.AveragePitchSpeed()</li>
+        <li>@atBat.Batter.Name</li>
             @foreach (var pitch in atBat.Pitches)
             {
                 <ul>
