@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic; 
+using System.Linq; 
 using Newtonsoft.Json; 
 
 namespace pitch_app.Models
@@ -22,23 +23,22 @@ namespace pitch_app.Models
             string json = System.IO.File.ReadAllText(@"App_Data/interviewgame.json");
             // Takes the JSON String a converts into a List of Dictionaries
             var GameData =  JsonConvert.DeserializeObject<List<Pitch>>(json); 
-            // loop through all the pitches and cretae AtBats for the inning
-            // for(int i = 0; i <= GameData.Count; i++)
-            // {
-            //     int currentInningNumber = Int32.Parse((GameData[i]["inning"])); 
-            //     bool currentTop = Convert.ToBoolean(GameData[i]["top_of_inning"]);
-
-            //     if((this.Number.Equals(currentInningNumber)) && (this.Top.Equals(currentTop)))   
-            //     {
-                    
-            //     }
-
-            // }
-    
-
-            AtBat second = new AtBat(GameData[20].batter, GameData[20].pitcher);
-            // this.AtBats.Add(first);  
-            this.AtBats.Add(second);  
+            //query pitches for this inning
+            var InningPitches = from pitch in GameData where (pitch.inning == this.Number) && (pitch.top_of_inning == this.Top) select pitch; 
+            //Create at bats for the Inning
+            int currentBatter = 0; 
+            foreach(Pitch pitch in InningPitches)
+            {
+                if(currentBatter != pitch.batter_id)
+                {
+                    //create a new at bat
+                    AtBat newAB = new AtBat(pitch.batter, pitch.pitcher);
+                    //Add the at bat to the inning
+                    this.AtBats.Add(newAB);  
+                    currentBatter = pitch.batter_id; 
+                }
+            }
+            
         }
     }
 }
