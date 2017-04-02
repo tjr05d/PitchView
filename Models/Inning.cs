@@ -31,13 +31,20 @@ namespace pitch_app.Models
             {
                 if(currentBatter != pitch.batter_id)
                 {
-                    //set teh currnet batter to new batter
+                    //set the current batter to new batter
                     currentBatter = pitch.batter_id;
                     //query for all of the picthes in the at bat
                     List<Pitch> PitchesInAtBat = (from inningPitch in InningPitches where inningPitch.batter_id == currentBatter select inningPitch).ToList();  
-                    //instantiates new at bat
+                    //adds pitch number for the atBat
+                    int ab_counter = 1;
+                    foreach (Pitch ab_pitch in PitchesInAtBat)
+                    {
+                        ab_pitch.at_bat_pitch = ab_counter;
+                        ab_counter ++; 
+                    }
                     Pitcher c_pitcher = new Pitcher(pitch.pitcher, pitch.pitcher_id);
                     Batter c_batter = new Batter(pitch.batter, pitch.batter_id); 
+                    //instantiates new at bat
                     AtBat newAB = new AtBat(c_pitcher, c_batter, PitchesInAtBat);
                     //Add the at bat to the inning
                     this.AtBats.Add(newAB);  

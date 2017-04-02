@@ -16,6 +16,7 @@
             @foreach (var pitch in atBat.Pitches)
             {
                 <ul>
+                    <li>Pitch Number: @pitch.at_bat_pitch</li>
                     <li>@pitch.pitch_type_name</li>
                     <li>@pitch.release_speed</li>
                 </ul>
