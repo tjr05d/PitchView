@@ -4,7 +4,9 @@
 <ul>
     @foreach (var atbat in Model)
     {
-        <li>@atbat.Pitcher.Name</li>
-        <li>@atbat.Batter.Name</li>
+        <div class="clickable-ab" data-pitcher= @atbat.Pitcher.PitcherId data-batter= @atbat.Batter.BatterId > 
+            <li>@atbat.Pitcher.Name</li>
+            <li>@atbat.Batter.Name</li>
+        </div>
     }
 </ul>

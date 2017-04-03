@@ -8,9 +8,12 @@ namespace pitch_app.ViewComponents
 {
     public class PitchListViewComponent : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync(AtBat ab)
+        public async Task<IViewComponentResult> InvokeAsync(int inning_num, bool top, int pitcher_id, int batter_id)
         {
-            var pitches = ab.Pitches; 
+            Inning query_inning = new Inning(inning_num, top);
+            query_inning.GetData();
+            var match_up = from ab in query_inning.AtBats select ab;
+            var pitches = match_up.FirstOrDefault().Pitches; 
             return View(pitches);
         }
     }

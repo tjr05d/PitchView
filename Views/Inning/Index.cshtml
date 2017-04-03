@@ -15,5 +15,5 @@
 </div>
 
 <div id="pitch-vc">
-        @await Component.InvokeAsync("PitchList", new { ab = Model.AtBats[1]})
+        @await Component.InvokeAsync("PitchList", new { inning_num = 1, top = true, pitcher_id = Model.AtBats[0].Pitcher.PitcherId, batter_id= Model.AtBats[0].Batter.BatterId })
 </div>

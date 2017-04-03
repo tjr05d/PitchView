@@ -15,18 +15,23 @@ namespace pitch_app.Controllers
 
         public IActionResult GetAtBats(string inning_num, string top)
         {
+            //make this conversion into a private method
             int cvt_inning_num = int.Parse(inning_num); 
             bool cvt_top = bool.Parse(top); 
 
             return ViewComponent("AtBatList", new { inning_num = cvt_inning_num, top = cvt_top}); 
         }
 
-        // public IActionResult GetPitches()
-        // {
-
+        public IActionResult GetPitches(string inning_num, string top,  string batter_id, string pitcher_id )
+        {
+            //make this convertion into a private method
+            int cvt_inning_num = int.Parse(inning_num);
+            bool cvt_top = bool.Parse(top);  
+            int cvt_pitcher_id = int.Parse(pitcher_id);
+            int cvt_batter_id = int.Parse(batter_id); 
     
-        //     return ViewComponent("PitchList"); 
-        // }
+            return ViewComponent("PitchList", new {inning_num = cvt_inning_num, top = cvt_top, pitcher_id= cvt_pitcher_id, batter_id= cvt_batter_id,}); 
+        }
 
     }
 }
