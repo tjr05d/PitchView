@@ -22,7 +22,7 @@ namespace pitch_app.Controllers
             return ViewComponent("AtBatList", new { inning_num = cvt_inning_num, top = cvt_top}); 
         }
 
-        public IActionResult GetPitches(string inning_num, string top,  string batter_id, string pitcher_id )
+        public IActionResult GetPitches(string inning_num, string top, string pitcher_id, string batter_id )
         {
             //make this convertion into a private method
             int cvt_inning_num = int.Parse(inning_num);
