@@ -8,9 +8,6 @@ $( document ).on("ready", function() {
            updatePitches(this);
        })
    })
-//    $(document).on("click", ".clickable-ab", {}, function(e){
-//        updatePitches(e);
-//    }); 
 });
 
 function updateAB() {
@@ -37,20 +34,7 @@ function updateAB() {
                 $(".clickable-ab").each( function() {
                     var $this = $(this); 
                     $this.on("click", function() {
-                        
-                        var inning_selected = $("#Number").find(":selected").val();
-                        var inning_num = inning_selected.split(",")[0]; 
-                        var top = inning_selected.split(",")[1]; 
-
-                        var pitcher_id = $($this).data("pitcher");
-                        var batter_id = $($this).data("batter");
-                        var pitch_url = "/Inning/GetPitches" 
-                        
-                        var data = {"inning_num": inning_num, "top": top, "pitcher_id": pitcher_id, "batter_id": batter_id }; 
-                        $('#pitch-vc').load(pitch_url, data, function() {
-                            console.log("I ran too"); 
-                        });
-
+                        updatePitches(this);
                     })
                 })
             });
