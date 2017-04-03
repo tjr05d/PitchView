@@ -6,7 +6,7 @@
 }
     
 <h2>Pitch View</h2>
-<div class="input-field col s6">
+<div class="input-field col s6 navy">
     @Html.DropDownListFor(m => m.Number,
             inningList.GetInnings().Select(i => 
                     new SelectListItem() { Text = i.FormatName(), Value = i.FormatValue()}))

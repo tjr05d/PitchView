@@ -28,6 +28,10 @@ textarea {
     width: 100%;
 }
 
+ul.dropdown-content.select-dropdown li span{
+   color:  navy;  /* no need for !important :) */
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
