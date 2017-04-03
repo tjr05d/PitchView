@@ -5,11 +5,12 @@
     ViewData["Title"] = "Index";
 }
     
-<h2>Index</h2>
-@Html.DropDownListFor(m => m.Number,
-           inningList.GetInnings().Select(i => 
-                new SelectListItem() { Text = i.FormatName(), Value = i.FormatValue()}))
-
+<h2>Pitch View</h2>
+<div class="input-field col s6">
+    @Html.DropDownListFor(m => m.Number,
+            inningList.GetInnings().Select(i => 
+                    new SelectListItem() { Text = i.FormatName(), Value = i.FormatValue()}))
+</div>
 <div id="ab-vc">
     @await Component.InvokeAsync("AtBatList", new { inning_num = 1, top = true })
 </div>

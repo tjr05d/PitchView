@@ -5,8 +5,7 @@
     @foreach (var atbat in Model)
     {
         <div class="clickable-ab" data-pitcher= @atbat.Pitcher.PitcherId data-batter= @atbat.Batter.BatterId > 
-            <li>@atbat.Pitcher.Name</li>
-            <li>@atbat.Batter.Name</li>
+            <li>@atbat.Pitcher.Name vs. @atbat.Batter.Name</li>
         </div>
     }
 </ul>

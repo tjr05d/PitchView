@@ -1,8 +1,10 @@
 ﻿// Write your Javascript code.
 $( document ).on("ready", function() {
+    $('select').material_select();
+    $('.caret').hide();
     //call at bats on inning change
-   $("#Number").on("change", updateAB);
-   $(".clickable-ab").each( function() {
+    $("#Number").on("change", updateAB);
+    $(".clickable-ab").each( function() {
        var $this = $(this); 
        $this.on("click", function() {
            updatePitches(this);
@@ -52,6 +54,12 @@ function updatePitches(element) {
     
     var data = {"inning_num": inning_num, "top": top, "pitcher_id": pitcher_id, "batter_id": batter_id }; 
     $('#pitch-vc').load(pitch_url, data, function() {
-        console.log("I ran too"); 
+        console.log("rebinding handler");
+                $(".clickable-ab").each( function() {
+                    var $this = $(this); 
+                    $this.on("click", function() {
+                        updatePitches(this);
+                    })
+                })
     });
 }
