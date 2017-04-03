@@ -18,7 +18,7 @@ namespace pitch_app.Models
             AtBats = new List<AtBat>(); 
         }
 
-        public void GetData()
+        public Inning GetData()
         {
             string json = System.IO.File.ReadAllText(@"App_Data/interviewgame.json");
             // Takes the JSON String a converts into a List of Dictionaries
@@ -50,7 +50,7 @@ namespace pitch_app.Models
                     this.AtBats.Add(newAB);  
                 }
             }
-            
+            return this; 
         }
 
         public string FormatName()
