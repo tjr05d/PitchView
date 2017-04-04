@@ -23,7 +23,7 @@ namespace pitch_app.ViewComponents
 
             Dictionary<int,int> game_pitcher = new Dictionary<int, int>(); 
             foreach (Pitch game_pitch in GameData){
-                if(game_pitcher.ContainsKey(game_pitch.pitcher_id))
+                if(game_pitcher.ContainsKey(game_pitch.pitcher_id)) 
                 {
                     game_pitcher[game_pitch.pitcher_id] ++;
                 } 
