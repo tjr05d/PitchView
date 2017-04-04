@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+div.page-container {
+  display: flex;
+  flex-direction: column; 
+}
+
+/*----------------------------------------*/
+/*-----------------HEADER-----------------*/
+/*----------------------------------------*/
+header.header {
+  display: flex;
+  flex-direction: column; 
+  background-color: navy;
+  color: white; 
+}
+
+header.header div.inning {
+  display: flex;
+  flex: 1; 
+  align-items: center; 
+  justify-content: center;
+}
+
+header.header div.inning .input-field {
+    width: 80%;
+}
+
+ul.dropdown-content.select-dropdown li span {
+    color: navy;
+    text-align: center;
+
+}
+
+
+header.header div.pitcher-stats {
+  display: flex; 
+  flex: 2; 
+  align-items: center; 
+  justify-content: center;
+  background-color: gray; 
+  height: 200px; 
+}
+
+/*----------------------------------------*/
+/*----------------MAIN--------------------*/
+/*----------------------------------------*/
+main.game-stats {
+  display: flex;
+  flex-direction: column; 
+  background-color: green;
+  height: 500px; 
+}
+
+main.game-stats .at-bats {
+  display: flex;
+  flex-directiion: row; 
+  flex: 1;
+  background-color: blue;
+}
+
+main.game-stats .pitches {
+  flex: 2; 
+  background-color: orange;
+}
+/*----------------------------------------*/
+/*-------------EVENTS SECTION-------------*/
+/*----------------------------------------*/
+
+/*----------------------------------------*/
+/*-----------------FOOTER-----------------*/
+/*----------------------------------------*/
+
+
+@media only screen and (min-width : 1200px) {
+  /*-----------------HEADER-----------------*/
+
+  /*-----------------TITLE------------------*/
+  /* no changes */
+  /*--------MAIN ARTICLE SECTION-----------*/
+  /* no changes */
+  /*-------------EVENTS SECTION-------------*
+    /* no changes */
+  /*-----------------FOOTER-----------------*/
+  /* no changes */
+}
+
+@media only screen and (min-width : 768px) {
+    /*-----------------HEADER-----------------*/
+header.header {
+  display: flex; 
+  flex-direction: row;
+}
+  
+header.header div.inning {
+  display: flex;
+  flex: 1; 
+  align-items: center; 
+  justify-content: center;
+}
+  /*--------MAIN ARTICLE SECTION-----------*/
+ main.game-stats {
+  display: flex;
+  flex-direction: row; 
+  background-color: green;
+  height: 500px; 
+}
+  
+ main.game-stats .at-bats {
+  display: flex;
+  flex-direction: column; 
+  flex: 1;
+  background-color: blue;
+}
+
+main.game-stats .pitches {
+  display: flex;
+  flex-direction: row; 
+  flex: 2;
+}
+  /* no changes */
+  /*-------------EVENTS SECTION-------------*
+    /* no changes */
+  /*-----------------FOOTER-----------------*/
+  /* no changes */
+}

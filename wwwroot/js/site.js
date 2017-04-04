@@ -1,7 +1,7 @@
 ﻿// Write your Javascript code.
 $( document ).on("ready", function() {
     $('select').material_select();
-    $('.caret').hide();
+    // $('.caret').hide();
     //call at bats on inning change
     $("#Number").on("change", updateAB);
     $(".clickable-ab").each( function() {

@@ -4,17 +4,30 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="page-container">
     
-<h2>Pitch View</h2>
-<div class="input-field col s6 navy">
-    @Html.DropDownListFor(m => m.Number,
-            inningList.GetInnings().Select(i => 
-                    new SelectListItem() { Text = i.FormatName(), Value = i.FormatValue()}))
-</div>
-<div id="ab-vc">
-    @await Component.InvokeAsync("AtBatList", new { inning_num = 1, top = true })
-</div>
+    <h4>Pitch View</h4>
+    <header class="header">
+        <div class="inning">
+            <div class="input-field navy">
+                @Html.DropDownListFor(m => m.Number,
+                        inningList.GetInnings().Select(i => 
+                                new SelectListItem() { Text = i.FormatName(), Value = i.FormatValue()}))
+            </div>
+        </div>
 
-<div id="pitch-vc">
-        @await Component.InvokeAsync("PitchList", new { inning_num = 1, top = true, pitcher_id = Model.AtBats[0].Pitcher.PitcherId, batter_id= Model.AtBats[0].Batter.BatterId })
+        <div class="pitcher-stats">
+            Graph Goes Here
+        </div>
+    </header>
+    <main class="game-stats">
+        <div class="at-bats" id="ab-vc">
+            @await Component.InvokeAsync("AtBatList", new { inning_num = 1, top = true })
+        </div>
+        <div class="pitches" id="pitch-vc">
+                @await Component.InvokeAsync("PitchList", new { inning_num = 1, top = true, pitcher_id = Model.AtBats[0].Pitcher.PitcherId, batter_id= Model.AtBats[0].Batter.BatterId })
+        </div>
+    </main>
+
+    
 </div>
