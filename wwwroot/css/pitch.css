@@ -91,6 +91,9 @@ main.game-stats section.at-bats div.ab-list div.clickable-ab:hover {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
 }
 
+.ab-active{
+  background-color: lightgray;
+}
 /*------------------PITCHES---------------*/
 main.game-stats section.pitches {
   flex: 2; 

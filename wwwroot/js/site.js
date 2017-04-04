@@ -7,7 +7,8 @@ $( document ).on("ready", function() {
     $(".clickable-ab").each( function() {
        var $this = $(this); 
        $this.on("click", function() {
-           updatePitches(this);
+           updatePitches($this);
+           $this.addClass("ab-active");
        })
    })
 });
@@ -37,6 +38,7 @@ function updateAB() {
                     var $this = $(this); 
                     $this.on("click", function() {
                         updatePitches(this);
+                        $this.addClass("ab-active");
                     })
                 })
             });
@@ -44,6 +46,8 @@ function updateAB() {
    }
 
 function updatePitches(element) {
+    $(".clickable-ab").removeClass("ab-active"); 
+
     var inning_selected = $("#Number").find(":selected").val();
     var inning_num = inning_selected.split(",")[0]; 
     var top = inning_selected.split(",")[1]; 
@@ -59,6 +63,7 @@ function updatePitches(element) {
                     var $this = $(this); 
                     $this.on("click", function() {
                         updatePitches(this);
+                        $this.addClass("ab-active");
                     })
                 })
     });
