@@ -1,0 +1,56 @@
+@model pitch_app.Models.Pitch
+
+<div class="pitch">  
+    <div class="pitch-title">
+        @Model.at_bat_pitch
+    </div>
+  
+  <div class="pitch-card">
+    
+    <div class="pitch-ab-info">
+      <div class= "pitch-count">
+        @Model.balls_before - @Model.strikes_before
+      </div>
+      <div class="pitch-outs">
+        @Model.outs_before
+      </div>
+    </div>
+    
+    <div class="pitch-result">
+      @Model.pitch_result
+    </div>
+    
+    <div class="pitch-type">
+      @Model.pitch_type_name
+    </div>
+    
+    <div class="pitch-speed">
+      @Model.release_speed
+    </div>
+    
+    <div class="pitch-count">
+      <div class="pitch-count-title">
+        Pitch Count
+      </div>
+      <div class="pitch-count-info">
+        <div class="game-pitch-count">
+          <div class="game-pitch-count-title">
+            Game
+          </div>
+           <div class="game-pitch-count-value">
+            @Model.game_pitch_number
+          </div>
+        </div>
+        <div class="player-pitch-count">
+          <div class="player-pitch-count-title">
+            @Model.pitcher
+          </div>
+           <div class="player-pitch-count-value">
+            2
+          </div> 
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

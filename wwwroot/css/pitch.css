@@ -49,8 +49,7 @@ header.header div.pitcher-stats {
 /*----------------------------------------*/
 main.game-stats {
   display: flex;
-  flex-direction: column; 
-  height: 100vh; 
+  flex-direction: column;  
 }
 
 /*------------------AT-BATS---------------*/
@@ -62,12 +61,11 @@ main.game-stats section.at-bats {
   border-right: 1px solid lightgrey; 
 }
 
-main.game-stats section.at-bats div.section-title {
+ div.section-title {
   display: flex;
   align-items: center; 
   justify-content: center;
-  padding-top: 1em;
-  padding-bottom : 1em;
+  min-height:4em;
   background-color: orange; 
 }
 
@@ -97,29 +95,121 @@ main.game-stats section.at-bats div.ab-list div.clickable-ab:hover {
 }
 /*------------------PITCHES---------------*/
 main.game-stats section.pitches {
+  display: flex;
+  flex-direction: column; 
   flex: 2; 
 }
-/*----------------------------------------*/
-/*-------------EVENTS SECTION-------------*/
-/*----------------------------------------*/
 
-/*----------------------------------------*/
-/*-----------------FOOTER-----------------*/
-/*----------------------------------------*/
-
-
-@media only screen and (min-width : 1200px) {
-  /*-----------------HEADER-----------------*/
-
-  /*-----------------TITLE------------------*/
-  /* no changes */
-  /*--------MAIN ARTICLE SECTION-----------*/
-  /* no changes */
-  /*-------------EVENTS SECTION-------------*
-    /* no changes */
-  /*-----------------FOOTER-----------------*/
-  /* no changes */
+main.game-stats section.pitches .pitch-list {
+  display: flex; 
+  flex-direction: column;
+  background-color: green; 
+  
 }
+
+/*--Pitch-Card-*/
+div.pitch {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;  
+  width: 80%; 
+}
+
+div.pitch div.pitch-card {
+  display: flex;
+  flex-direction: column;
+  background-color: green;
+}
+
+div.pitch div.pitch-card div.pitch-ab-info {
+  display: flex;
+  align-content: flex-start; 
+  padding: 1em; 
+  background-color: red; 
+}
+
+div.pitch div.pitch-card div.pitch-result{
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: blue; 
+  height: 8em; 
+}
+
+div.pitch div.pitch-card div.pitch-type{
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: yellow;
+  padding: 1em; 
+}
+
+div.pitch div.pitch-card div.pitch-speed {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: orange; 
+  height: 8em; 
+}
+
+div.pitch div.pitch-card div.pitch-count div.pitch-count-title {
+  display: flex;
+  justify-content: center; 
+  padding: 1em; 
+  background-color: red; 
+}
+
+div.pitch div.pitch-card div.pitch-count div.pitch-count-info {
+  display: flex;
+  background-color: blue; 
+}
+
+div.pitch div.pitch-card div.pitch-count div.pitch-count-info .game-pitch-count{
+  background-color: green;
+  flex: 1; 
+}
+
+div.pitch div.pitch-card div.pitch-count div.pitch-count-info .game-pitch-count .game-pitch-count-title {
+  text-align: center;
+  /*padding: 0.25em; */
+  flex: 1;
+  background-color: blue;
+}
+
+div.pitch div.pitch-card div.pitch-count div.pitch-count-info .game-pitch-count .game-pitch-count-value {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  /*height: 5em; */
+  background-color: lightblue;
+}
+
+div.pitch div.pitch-card div.pitch-count div.pitch-count-info .player-pitch-count{
+  flex: 1; 
+  background-color: gray; 
+}
+
+div.pitch div.pitch-card div.pitch-count div.pitch-count-info .player-pitch-count .player-pitch-count-title {
+  text-align: center;
+  /*padding: 0.25em; */
+  flex: 1;
+  background-color: yellow;
+}
+
+div.pitch div.pitch-card div.pitch-count div.pitch-count-info .player-pitch-count .player-pitch-count-value {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  /*height: 5em; */
+  background-color: orange;
+}
+
+
+/*----------------------------------------*/
+/*-----------------MEDIA-Q-----------------*/
+/*----------------------------------------*/
 
 @media only screen and (min-width : 768px) {
     /*-----------------HEADER-----------------*/
@@ -144,7 +234,7 @@ header.header div.inning {
 
 main.game-stats section.pitches {
   display: flex;
-  flex-direction: row; 
+  flex-direction: column; 
   flex: 2;
 }
   /* AT BATS */
@@ -152,6 +242,20 @@ main.game-stats section.pitches {
 main.game-stats section.at-bats div.ab-list {
   display: flex;
   flex-direction: column;
+}
+
+/* PITCHES */
+main.game-stats section.pitches .pitch-list {
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap; 
+  background-color: green; 
+  
+}
+
+div.pitch {
+  margin: 0 auto;  
+  width: 200px;  
 }
   /*-------------EVENTS SECTION-------------*
     /* no changes */
