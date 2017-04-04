@@ -23,6 +23,12 @@ namespace pitch_app.ViewComponents
             //query pitches for this inning
             var InningPitches = from pitch in GameData where (pitch.inning == inning_num) && (pitch.top_of_inning == top) select pitch;
             var AbPitches = from pitch in InningPitches where (pitch.batter_id == batter_id) && (pitch.pitcher_id == pitcher_id) select pitch;
+            int ab_counter = 1; 
+            foreach (Pitch ab_pitch in AbPitches)
+                    {
+                        ab_pitch.at_bat_pitch = ab_counter;
+                        ab_counter ++; 
+                    }
             return AbPitches.ToList();  
         }
     }
