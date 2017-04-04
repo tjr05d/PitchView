@@ -103,7 +103,7 @@ main.game-stats section.pitches {
 main.game-stats section.pitches .pitch-list {
   display: flex; 
   flex-direction: column;
-  background-color: green; 
+  justify-content: center;  
   
 }
 
@@ -113,6 +113,10 @@ div.pitch {
   flex-direction: column;
   margin: 0 auto;  
   width: 80%; 
+}
+
+div.pitch-title{
+  text-align: center; 
 }
 
 div.pitch div.pitch-card {
@@ -133,7 +137,7 @@ div.pitch div.pitch-card div.pitch-result{
   align-items: center; 
   justify-content: center; 
   background-color: blue; 
-  height: 8em; 
+  height: 5em; 
 }
 
 div.pitch div.pitch-card div.pitch-type{
@@ -149,7 +153,7 @@ div.pitch div.pitch-card div.pitch-speed {
   align-items: center; 
   justify-content: center; 
   background-color: orange; 
-  height: 8em; 
+  height: 5em; 
 }
 
 div.pitch div.pitch-card div.pitch-count div.pitch-count-title {
@@ -228,7 +232,6 @@ header.header div.inning {
  main.game-stats {
   display: flex;
   flex-direction: row; 
-  height: 100vh; 
 }
   
 
@@ -248,13 +251,13 @@ main.game-stats section.at-bats div.ab-list {
 main.game-stats section.pitches .pitch-list {
   display: flex; 
   flex-direction: row;
+  justify-content: flex-start;
+  margin: 2em; 
   flex-wrap: wrap; 
-  background-color: green; 
-  
 }
 
 div.pitch {
-  margin: 0 auto;  
+  margin: 2em;  
   width: 200px;  
 }
   /*-------------EVENTS SECTION-------------*
