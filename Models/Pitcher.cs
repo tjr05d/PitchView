@@ -14,6 +14,26 @@ namespace pitch_app.Models
             Name = name;
             PitcherId = pitcher_id; 
         }
+
+        public Dictionary<int,float> CurrentAvgFastballSpeed(int game_pitch)
+        {
+            IEnumerable<Pitch> PlayerPitches = this.AllGamePitches();
+            // collect innigns in which the pitcher pitcher
+
+            //all pitches for this player up to this point in the game
+            List<int>  InningsPitched = (from pitch in PlayerPitches where pitch.game_pitch_number <= game_pitch select pitch.inning).Distinct().ToList();
+
+            var av_sp_inning = new Dictionary<int, float>();
+
+            foreach(int inning in InningsPitched){
+                av_sp_inning[inning] = this.AveragePitchSpeed(inning);  
+                }
+
+            return  av_sp_inning; 
+            
+        } 
+
+
         public float AveragePitchSpeed(int inning = 9, string type= "FB", bool cumulative = true )
         {
             //EXTRACT THIS TO ITS OWN METHOD
@@ -41,6 +61,7 @@ namespace pitch_app.Models
             var allPitches = (from pitch in GameData where (pitch.pitcher_id == this.PitcherId) select pitch); 
             return allPitches; 
         }
+
 
     }
 }

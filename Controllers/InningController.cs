@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Encodings.Web;
-using pitch_app.Models; 
+using pitch_app.Models;  
 
 namespace pitch_app.Controllers
 {
@@ -33,5 +33,13 @@ namespace pitch_app.Controllers
             return ViewComponent("PitchList", new {inning_num = cvt_inning_num, top = cvt_top, pitcher_id= cvt_pitcher_id, batter_id= cvt_batter_id,}); 
         }
 
+        public IActionResult PitcherStats(string game_pitch_number, string pitcher_id, string pitcher_name)
+        {   
+            int cvt_pitcher_id = int.Parse(pitcher_id);
+            int cvt_game_pitch_number = int.Parse(game_pitch_number);
+            Pitcher pitcher = new Pitcher(pitcher_name, cvt_pitcher_id); 
+
+            return Json(pitcher.CurrentAvgFastballSpeed(cvt_game_pitch_number)); 
+        }
     }
 }

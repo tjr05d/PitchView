@@ -1,7 +1,7 @@
 ﻿// Write your Javascript code.
 $( document ).on("ready", function() {
     $('select').material_select();
-    // $('.caret').hide();
+    pitcherChart();
     //call at bats on inning change
     $("#Number").on("change", updateAB);
     $(".clickable-ab").each( function() {
@@ -66,5 +66,29 @@ function updatePitches(element) {
                         $this.addClass("ab-active");
                     })
                 })
+    });
+}
+
+function pitcherChart(){
+     var myChart = Highcharts.chart('container', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Average Fastball Velocity'
+        },
+        xAxis: {
+            title: {text: "Inning"}, 
+            categories: [1,2,3,4]
+        },
+        yAxis: {
+            title: {
+                text: 'Avg. Speed'
+            }
+        },
+        series: [{
+            name: 'Feirs, Mike', 
+            data: [88.6, 86.7, 87.6]
+        }]
     });
 }
