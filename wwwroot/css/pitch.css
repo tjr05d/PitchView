@@ -50,7 +50,7 @@ header.header div.pitcher-stats {
 main.game-stats {
   display: flex;
   flex-direction: column; 
-  height: 500px; 
+  height: 100vh; 
 }
 
 /*------------------AT-BATS---------------*/
@@ -59,6 +59,7 @@ main.game-stats section.at-bats {
   display: flex;
   flex-direction: column; 
   flex: 1;
+  border-right: 1px solid lightgrey; 
 }
 
 main.game-stats section.at-bats div.section-title {
@@ -67,7 +68,7 @@ main.game-stats section.at-bats div.section-title {
   justify-content: center;
   padding-top: 1em;
   padding-bottom : 1em;
-  background-color: red; 
+  background-color: orange; 
 }
 
 main.game-stats section.at-bats div.ab-list {
@@ -97,7 +98,6 @@ main.game-stats section.at-bats div.ab-list div.clickable-ab:hover {
 /*------------------PITCHES---------------*/
 main.game-stats section.pitches {
   flex: 2; 
-  background-color: orange;
 }
 /*----------------------------------------*/
 /*-------------EVENTS SECTION-------------*/
@@ -138,7 +138,7 @@ header.header div.inning {
  main.game-stats {
   display: flex;
   flex-direction: row; 
-  height: 500px; 
+  height: 100vh; 
 }
   
 
