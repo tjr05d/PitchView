@@ -21,12 +21,14 @@
         </div>
     </header>
     <main class="game-stats">
-        <div class="at-bats" id="ab-vc">
+
+        <section class="at-bats" id="ab-vc">
             @await Component.InvokeAsync("AtBatList", new { inning_num = 1, top = true })
-        </div>
-        <div class="pitches" id="pitch-vc">
+        </section>
+
+        <section class="pitches" id="pitch-vc">
                 @await Component.InvokeAsync("PitchList", new { inning_num = 1, top = true, pitcher_id = Model.AtBats[0].Pitcher.PitcherId, batter_id= Model.AtBats[0].Batter.BatterId })
-        </div>
+        </section>
     </main>
 
     

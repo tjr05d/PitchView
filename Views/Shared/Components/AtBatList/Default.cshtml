@@ -1,11 +1,13 @@
 @model IEnumerable<pitch_app.Models.AtBat>
 
-<h3>AtBats</h3>
-<ul>
+<div class="section-title">
+    <h5>AtBats</h5>    
+</div>
+<div class="ab-list">
     @foreach (var atbat in Model)
     {
         <div class="clickable-ab" data-pitcher= @atbat.Pitcher.PitcherId data-batter= @atbat.Batter.BatterId > 
-            <li>@atbat.Pitcher.Name vs. @atbat.Batter.Name</li>
+            @atbat.Batter.Name vs. @atbat.Pitcher.Name
         </div>
     }
-</ul>
+</div>
