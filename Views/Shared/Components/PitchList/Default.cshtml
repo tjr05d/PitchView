@@ -1,7 +1,7 @@
 @model IEnumerable<pitch_app.Models.Pitch>
 
 <div class="section-title">
-    <h5>Play BY Play goes here ... </h5>    
+    @(@Model.Any() ? @Model.Last().play_by_play : "Select an Inning or At Bat" ) 
 </div>
 <div class="pitch-list">
     @foreach (var pitch in Model)

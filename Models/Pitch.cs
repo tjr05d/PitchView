@@ -23,6 +23,7 @@ namespace pitch_app.Models
 		public float release_speed {get; set;}
 		public string video_url {get; set;}
         public int at_bat_pitch {get; set; }
+		public int pitcher_pitch_count {get; set; }
 
     }
 }
