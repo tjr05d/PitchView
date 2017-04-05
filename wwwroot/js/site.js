@@ -78,13 +78,10 @@ function updatePitches(element) {
     });
 }
 
-
-// When a pitch is clicked on, update the graph with the stats for the pitcher up to that pitch Number
-// grab the pitch number, pitcher_name, and pitcher_id for the Ajax call
-function updatePitcherChart(pitcher, innings, avgSpeeds){
-     var myChart = Highcharts.chart('container', {
+function updatePitcherChart(pitcher, innings, avgSpeeds, type){
+    var myChart = Highcharts.chart('container', {
         chart: {
-            type: 'bar'
+            type: type
         },
         title: {
             text: 'Average Fastball Velocity'
@@ -98,6 +95,14 @@ function updatePitcherChart(pitcher, innings, avgSpeeds){
                 text: 'Avg. Speed'
             }
         },
+         plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: false
+            },
+                enableMouseTracking: true
+            }
+        }, 
         series: [{
             name: pitcher, 
             data: avgSpeeds
@@ -118,7 +123,13 @@ function updatePitcherStats(element){
         var innings = Object.keys(response);
         var avgSpeeds =  innings.map(function (k) {
             return response[k];
-        });
-        updatePitcherChart(pitcherName, innings, avgSpeeds); 
+        }); 
+        //changes graph to bar if there is only data for one innintg
+        var type = innings.length <= 1 ? 'column' : 'line'
+        updatePitcherChart(pitcherName, innings, avgSpeeds, type); 
     })
+}
+
+function updatePitchCountStats(){
+
 }
