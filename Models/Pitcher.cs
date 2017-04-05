@@ -32,8 +32,6 @@ namespace pitch_app.Models
             return  av_sp_inning; 
             
         } 
-
-
         public float AveragePitchSpeed(int inning = 9, string type= "FB", bool cumulative = true )
         {
             //EXTRACT THIS TO ITS OWN METHOD
