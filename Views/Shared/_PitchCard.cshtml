@@ -1,6 +1,6 @@
 @model pitch_app.Models.Pitch
 
-<div class="pitch">  
+<div class="pitch" data-id=@Model.pitcher_id data-pitchnum=@Model.game_pitch_number data-name=@Model.pitcher>  
     <div class="pitch-title">
         Pitch: @Model.at_bat_pitch
     </div>
