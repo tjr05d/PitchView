@@ -18,9 +18,13 @@ namespace pitch_app.ViewComponents
         private List<Pitch> GetPitchData(int inning_num, bool top, int pitcher_id, int batter_id){
             Inning inning = new Inning(inning_num, top); 
             var InningPitches = new GameDataApi().InningPitches(inning);
-    
-            //query pitches for this inning
-            var AbPitches = from pitch in InningPitches where (pitch.batter_id == batter_id) && (pitch.pitcher_id == pitcher_id) select pitch;
+            
+            return CalcNumInAB(InningPitches, pitcher_id, batter_id);  
+        }
+
+        private List<Pitch> CalcNumInAB(IEnumerable<Pitch> InningPitches, int pitcherId, int batterId )
+        {
+            var AbPitches = from pitch in InningPitches where (pitch.batter_id == batterId) && (pitch.pitcher_id == pitcherId) select pitch;
             int ab_counter = 1; 
             // adds pitch in atbat number
             foreach (Pitch ab_pitch in AbPitches)
@@ -28,7 +32,7 @@ namespace pitch_app.ViewComponents
                     ab_pitch.at_bat_pitch = ab_counter;
                     ab_counter ++; 
                 }
-            return AbPitches.ToList();  
+            return AbPitches.ToList();
         }
 
     }
