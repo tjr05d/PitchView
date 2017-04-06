@@ -1,7 +1,7 @@
 ﻿// Write your Javascript code.
 $( document ).on("ready", function() {
     $('select').material_select();
-    updatePitcherChart();
+    // updatePitcherChart();
     //start madness
     $(document).on("click", ".pitch", {}, function(e){
         var $this = $(this);
@@ -29,6 +29,7 @@ function updateAB() {
 
         var ab_url = "/Inning/GetAtBats"
         var ab_data = {"inning_num": inning_num, "top": top}
+        $(".clickable-ab").removeClass("ab-active");
 
         $('#ab-vc').load(ab_url, ab_data, function(){
 
@@ -41,7 +42,10 @@ function updateAB() {
             var pitch_url = "/Inning/GetPitches"
             var pitch_data = {"inning_num": inning_num, "top": top, "pitcher_id": pitcher_id, "batter_id": batter_id }; 
             $('#pitch-vc').load(pitch_url, pitch_data, function(){
-                console.log("rebinding handler");
+                $(".clickable-ab").first( function(){
+                    var $this = $(this); 
+                    $this.addClass("ab-active"); 
+                })
                 $(".clickable-ab").each( function() {
                     var $this = $(this); 
                     $this.on("click", function() {
@@ -53,7 +57,7 @@ function updateAB() {
         });
    }
 
-function updatePitches(element) {
+function updatePitches(element) { 
     $(".clickable-ab").removeClass("ab-active"); 
 
     var inning_selected = $("#Number").find(":selected").val();
@@ -79,7 +83,7 @@ function updatePitches(element) {
 }
 
 function updatePitcherChart(pitcher, innings, avgSpeeds, type){
-    var myChart = Highcharts.chart('container', {
+    var myChart = Highcharts.chart('velocity-graph', {
         chart: {
             type: type
         },
@@ -108,13 +112,14 @@ function updatePitcherChart(pitcher, innings, avgSpeeds, type){
             data: avgSpeeds
         }]
     });
+    $(".highcharts-credits").hide();
 }
 
 function updatePitcherStats(element){
     //handlers for the pitcher stats ajax call
     var gamePitchNumber = element.data("pitchnum"); 
     var pitcherId = element.data("id");  
-    var pitcherName = element.data("name");
+    var pitcherName = element.data("name").replace(",", " ");
 
     var pitcherStatsUrl = "/Inning/PitcherStats"
     var data = {"game_pitch_number": gamePitchNumber,  "pitcher_id": pitcherId, "pitcher_name": pitcherName }
@@ -128,8 +133,4 @@ function updatePitcherStats(element){
         var type = innings.length <= 1 ? 'column' : 'line'
         updatePitcherChart(pitcherName, innings, avgSpeeds, type); 
     })
-}
-
-function updatePitchCountStats(){
-
 }

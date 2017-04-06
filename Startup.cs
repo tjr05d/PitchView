@@ -55,7 +55,7 @@ namespace pitch_app
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Inning}/{action=Index}/{id?}");
             });
         }
     }

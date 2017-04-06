@@ -25,5 +25,10 @@ namespace pitch_app.Models
         public int at_bat_pitch {get; set; }
 		public int pitcher_pitch_count {get; set; }
 
+		public String FormatPitchResult()
+		{
+			return this.pitch_result.Replace('_', ' ').ToUpper(); 
+			
+		}
     }
 }

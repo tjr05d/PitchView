@@ -9,15 +9,15 @@
     
     <div class="pitch-ab-info">
       <div class= "pitch-count">
-        @Model.balls_before - @Model.strikes_before
+        Count: @Model.balls_before - @Model.strikes_before
       </div>
       <div class="pitch-outs">
-        @Model.outs_before
+        Outs: @Model.outs_before
       </div>
     </div>
     
     <div class="pitch-result">
-      @Model.pitch_result
+      @Model.FormatPitchResult()
     </div>
     
     <div class="pitch-type">
@@ -25,7 +25,8 @@
     </div>
     
     <div class="pitch-speed">
-      @Model.release_speed
+      @Model.release_speed<br>
+      mph
     </div>
     
     <div class="pitch-count">
