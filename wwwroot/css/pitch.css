@@ -49,14 +49,14 @@ header.header div.pitcher-stats {
   align-items: center; 
   justify-content: center;
   background-color: gray; 
-  height: 300px; 
+  min-height: 300px; 
 }
 
 header.header div.pitcher-stats #velocity-graph {
   display: flex;
   align-items: center; 
   justify-content: center; 
-  font-size: 18px; 
+  font-size: 1.25em; 
   width: 80%; 
   height: 80%; 
 }
@@ -121,7 +121,7 @@ main.game-stats section.pitches .pitch{
 }
 
 main.game-stats section.pitches .pitch-title{
-  font-size: 24px; 
+  font-size: 1.5em; 
 }
 
 main.game-stats section.pitches .pitch-list {
@@ -169,7 +169,7 @@ div.pitch div.pitch-card div.pitch-result{
   align-items: center; 
   justify-content: center; 
   text-align: center; 
-  font-size: 24px; 
+  font-size: 1.5em; 
   height: 4em; 
 }
 
@@ -187,7 +187,7 @@ div.pitch div.pitch-card div.pitch-speed {
   align-items: center; 
   justify-content: center; 
   text-align: center;
-  font-size: 24px;  
+  font-size: 1.5em;  
   height: 4em; 
 }
 
@@ -268,7 +268,7 @@ header.header div.inning {
 }
 
 header.header div.pitcher-stats {
-  height: 300px; 
+  min-height: 300px; 
 }
 
 header.header div.pitcher-stats #velocity-graph {
