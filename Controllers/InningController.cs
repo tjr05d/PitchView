@@ -6,9 +6,8 @@ namespace pitch_app.Controllers
 {
     public class InningController : Controller
     {
-        public IActionResult Index(int number = 2, bool top = false)
+        public IActionResult Index(int number = 1, bool top = true)
         {
-            // Inning inning = new Inning(number, top);
             GameDataApi api_call = new GameDataApi(); 
             Inning inning = api_call.GetPopulatedInning(number, top); 
             return View(inning); 
@@ -16,7 +15,6 @@ namespace pitch_app.Controllers
 
         public IActionResult GetAtBats(string inning_num, string top)
         {
-            //make this conversion into a private method
             int cvt_inning_num = int.Parse(inning_num); 
             bool cvt_top = bool.Parse(top); 
 
@@ -25,7 +23,6 @@ namespace pitch_app.Controllers
 
         public IActionResult GetPitches(string inning_num, string top, string pitcher_id, string batter_id )
         {
-            //make this convertion into a private method
             int cvt_inning_num = int.Parse(inning_num);
             bool cvt_top = bool.Parse(top);  
             int cvt_pitcher_id = int.Parse(pitcher_id);

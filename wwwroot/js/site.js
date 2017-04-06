@@ -105,7 +105,8 @@ function updatePitcherChart(pitcher, innings, avgSpeeds, type){
         }, 
         series: [{
             name: pitcher, 
-            data: avgSpeeds
+            data: avgSpeeds,
+            color: ' #072854'
         }]
     });
     $(".highcharts-credits").hide();
@@ -125,6 +126,6 @@ function updatePitcherStats(element){
             return response[k];
         }); 
         var type = innings.length <= 1 ? 'column' : 'line'
-        updatePitcherChart(pitcherName, innings, avgSpeeds, type); 
+        updatePitcherChart(pitcherName, innings, avgSpeeds, type);
     })
 }

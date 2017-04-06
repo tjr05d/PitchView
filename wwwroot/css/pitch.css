@@ -17,7 +17,7 @@ div.page-container .app-title{
 header.header {
   display: flex;
   flex-direction: column; 
-  background-color: navy;
+  background-color: #072854;
   color: white; 
 }
 
@@ -37,7 +37,7 @@ input.select-dropdown {
 }
 
 ul.dropdown-content.select-dropdown li span {
-    color: navy;
+    color: #072854;
     text-align: center;
 
 }
@@ -83,7 +83,7 @@ main.game-stats section.at-bats {
   align-items: center; 
   justify-content: center;
   min-height:4em;
-  background-color: orange; 
+  background-color: #FF7F00; 
 }
 
 main.game-stats section.at-bats div.ab-list {
@@ -164,7 +164,7 @@ div.pitch div.pitch-card div.pitch-ab-info {
   align-content: flex-start;
   justify-content: space-around; 
   padding: 1em; 
-  background-color: navy; 
+  background-color: #072854; 
   color: white; 
 }
 
@@ -181,7 +181,7 @@ div.pitch div.pitch-card div.pitch-type{
   display: flex; 
   align-items: center; 
   justify-content: center; 
-  background-color: navy;
+  background-color: #072854;
   color: white; 
   padding: 1em; 
 }
@@ -199,7 +199,7 @@ div.pitch div.pitch-card div.pitch-count div.pitch-count-title {
   display: flex;
   justify-content: center; 
   padding: 0.5.em; 
-  background-color: orange; 
+  background-color: #FF7F00; 
 }
 
 div.pitch div.pitch-card div.pitch-count div.pitch-count-info {
@@ -214,7 +214,7 @@ div.pitch div.pitch-card div.pitch-count div.pitch-count-info .game-pitch-count 
   text-align: center;
   /*padding: 0.25em; */
   flex: 1;
-  background-color: navy;
+  background-color: #072854;
   color: white; 
 }
 
@@ -234,7 +234,7 @@ div.pitch div.pitch-card div.pitch-count div.pitch-count-info .player-pitch-coun
   text-align: center;
   /*padding: 0.25em; */
   flex: 1;
-  background-color: navy; 
+  background-color: #072854; 
   color: white; 
   border-left: 1px solid grey; 
 }
