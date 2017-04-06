@@ -1,24 +1,24 @@
-﻿// Write your Javascript code.
-$( document ).on("ready", function() {
+﻿$( document ).on("ready", function() {
+    //adds fucntionality to the inning dropdown
     $('select').material_select();
-    // updatePitcherChart();
-    //start madness
+    //event handler for the pitcher velocity graph
     $(document).on("click", ".pitch", {}, function(e){
+        e.preventDefault(); 
         var $this = $(this);
         updatePitcherStats($this);
     })
-    //stop madness
-    //call at bats on inning change
+
+    //event handler for at bat update section when inning is changed
     $("#Number").on("change", updateAB);
-    //handlers for the atbat ajax call
+    //event handlers for updating pitches when an atbat is clicked
     $(".clickable-ab").each( function() {
-       var $this = $(this); 
-       $this.on("click", function() {
-           updatePitches($this);
-           $this.addClass("ab-active");
+        var $this = $(this); 
+        $this.on("click", function(e) {
+        e.preventDefault();
+        updatePitches($this);
+        $this.addClass("ab-active");
        })
    })
-
 });
 
 function updateAB() {
@@ -42,13 +42,10 @@ function updateAB() {
             var pitch_url = "/Inning/GetPitches"
             var pitch_data = {"inning_num": inning_num, "top": top, "pitcher_id": pitcher_id, "batter_id": batter_id }; 
             $('#pitch-vc').load(pitch_url, pitch_data, function(){
-                $(".clickable-ab").first( function(){
-                    var $this = $(this); 
-                    $this.addClass("ab-active"); 
-                })
                 $(".clickable-ab").each( function() {
                     var $this = $(this); 
-                    $this.on("click", function() {
+                    $this.on("click", function(e) {
+                        e.preventDefault(); 
                         updatePitches(this);
                         $this.addClass("ab-active");
                     })
@@ -70,15 +67,14 @@ function updatePitches(element) {
     
     var data = {"inning_num": inning_num, "top": top, "pitcher_id": pitcher_id, "batter_id": batter_id }; 
     $('#pitch-vc').load(pitch_url, data, function() {
-        console.log("rebinding handler");
-                $(".clickable-ab").each( function() {
-                    var $this = $(this); 
-                    $this.on("click", function() {
-                        updatePitches(this);
-                        $this.addClass("ab-active");
-                        
-                    })
-                })
+        $(".clickable-ab").each( function() {
+            var $this = $(this); 
+            $this.on("click", function(e) {
+                e.preventDefault(); 
+                updatePitches(this);
+                $this.addClass("ab-active");
+            })
+        })
     });
 }
 
@@ -116,20 +112,18 @@ function updatePitcherChart(pitcher, innings, avgSpeeds, type){
 }
 
 function updatePitcherStats(element){
-    //handlers for the pitcher stats ajax call
     var gamePitchNumber = element.data("pitchnum"); 
     var pitcherId = element.data("id");  
     var pitcherName = element.data("name").replace(",", " ");
 
-    var pitcherStatsUrl = "/Inning/PitcherStats"
-    var data = {"game_pitch_number": gamePitchNumber,  "pitcher_id": pitcherId, "pitcher_name": pitcherName }
+    var pitcherStatsUrl = "/Inning/PitcherStats"; 
+    var data = {"game_pitch_number": gamePitchNumber,  "pitcher_id": pitcherId, "pitcher_name": pitcherName }; 
 
     $.get(pitcherStatsUrl, data, function(response){
         var innings = Object.keys(response);
         var avgSpeeds =  innings.map(function (k) {
             return response[k];
         }); 
-        //changes graph to bar if there is only data for one innintg
         var type = innings.length <= 1 ? 'column' : 'line'
         updatePitcherChart(pitcherName, innings, avgSpeeds, type); 
     })
