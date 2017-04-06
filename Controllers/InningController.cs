@@ -8,8 +8,9 @@ namespace pitch_app.Controllers
     {
         public IActionResult Index(int number = 2, bool top = false)
         {
-            Inning inning = new Inning(number, top);
-            inning.GetData(); 
+            // Inning inning = new Inning(number, top);
+            GameDataApi api_call = new GameDataApi(); 
+            Inning inning = api_call.GetPopulatedInning(number, top); 
             return View(inning); 
         }
 
