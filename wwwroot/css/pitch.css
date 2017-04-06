@@ -74,7 +74,8 @@ main.game-stats section.at-bats {
   display: flex;
   flex-direction: column; 
   flex: 1;
-  border-right: 1px solid grey; 
+  border-right: 1px solid grey;
+  background-color: #eeeeee; 
 }
 
  div.section-title {
@@ -87,6 +88,7 @@ main.game-stats section.at-bats {
 
 main.game-stats section.at-bats div.ab-list {
   display: flex;
+  background-color: white;
 }
 
 main.game-stats section.at-bats div.ab-list div.clickable-ab {
@@ -97,7 +99,7 @@ main.game-stats section.at-bats div.ab-list div.clickable-ab {
   margin: 1px;
   height: 5em;  
   border: 1px solid lightgray;
-  margin: 0; 
+  margin: 0;  
 } 
 
 main.game-stats section.at-bats div.ab-list div.clickable-ab:hover {
@@ -114,6 +116,7 @@ main.game-stats section.pitches {
   display: flex;
   flex-direction: column; 
   flex: 2; 
+  background-color: #eeeeee; 
 }
 
 main.game-stats section.pitches .pitch{
@@ -147,6 +150,7 @@ div.pitch div.pitch-card {
   display: flex;
   flex-direction: column;
   border: 1px solid grey;
+  background-color: white; 
 }
 
 div.pitch div.pitch-card:hover {
